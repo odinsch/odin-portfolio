@@ -7,7 +7,7 @@ animations, and a clean, performance-focused architecture.
 
 ## Live
 
-🔗 [tu-dominio.vercel.app](https://tu-dominio.vercel.app)
+🔗 [tu-dominio.vercel.app](https://odin-portfolio-neon.vercel.app/)
 
 ## Tech Stack
 

@@ -54,9 +54,8 @@ export default function Hero() {
         </h1>
 
         <p className={styles.subtitle}>
-          Senior Frontend Engineer building immersive,
-          <br />
-          high-performance web experiences for global brands.
+          Senior Frontend Engineer building immersive, high-performance web
+          experiences for global brands.
         </p>
 
         <p className={styles.description}>
