@@ -1,0 +1,16 @@
+:root {
+  /* Colores */
+  --color-bg-light: #f4f3ef;
+  --color-bg-dark: #0a0a0a;
+  --color-text-light: #0a0a0a;
+  --color-text-dark: #f4f3ef;
+  --color-accent: #5b7fff;
+
+  /* Tipografía */
+  --font-mono: "Space Mono", monospace; /* la cambiamos después */
+
+  /* Spacing */
+  --space-section: clamp(4rem, 10vw, 10rem);
+  --container-max: 1280px;
+  --container-pad: clamp(1.5rem, 5vw, 4rem);
+}

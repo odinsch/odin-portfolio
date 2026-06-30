@@ -1,0 +1,53 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem var(--container-pad);
+  mix-blend-mode: difference; /* 👈 magia: invierte color según el fondo */
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: #fff; /* con mix-blend-mode difference, se ve negro sobre claro */
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+/* Mobile: ocultamos los links (o podríamos hacer un menú hamburguesa) */
+@media (max-width: 640px) {
+  .links {
+    gap: 1.25rem;
+  }
+  .link {
+    font-size: 0.85rem;
+  }
+}
