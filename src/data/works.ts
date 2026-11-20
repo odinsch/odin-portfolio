@@ -44,6 +44,6 @@ export const works: Work[] = [
       "An immersive educational game built around advanced animations and interactive storytelling. As part of the frontend team, I contributed to building its interactive experiences. Awarded on FWA.",
     tags: ["WebGL", "GSAP", "Immersive"],
     award: "FWA — Site of the Day",
-    link: "https://thefwa.com/cases/intuit-for-education-prosperity-quest-game",
+    link: "https://i4egames.intuit.com/prosperityquest/",
   },
 ];
