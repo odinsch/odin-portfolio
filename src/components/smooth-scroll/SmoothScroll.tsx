@@ -1,19 +1,26 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef } from "react";
+import type { RefObject } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-const LenisContext = createContext<Lenis | null>(null);
+type LenisRef = RefObject<Lenis | null>;
 
-export const useLenis = () => useContext(LenisContext);
+const LenisContext = createContext<LenisRef | null>(null);
+
+/**
+ * Returns a ref holding the Lenis instance (null until mounted).
+ * Read `.current` inside event handlers or effects, not during render.
+ */
+export const useLenis = (): LenisRef | null => useContext(LenisContext);
 
 export default function SmoothScroll({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -22,7 +29,7 @@ export default function SmoothScroll({
       smoothWheel: true,
     });
 
-    setLenisInstance(lenis);
+    lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -35,13 +42,11 @@ export default function SmoothScroll({
     return () => {
       lenis.destroy();
       gsap.ticker.remove(raf);
-      setLenisInstance(null);
+      lenisRef.current = null;
     };
   }, []);
 
   return (
-    <LenisContext.Provider value={lenisInstance}>
-      {children}
-    </LenisContext.Provider>
+    <LenisContext.Provider value={lenisRef}>{children}</LenisContext.Provider>
   );
 }

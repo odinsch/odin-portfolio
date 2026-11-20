@@ -1,10 +1,8 @@
 import { useLenis } from "@/components/smooth-scroll";
-
 export function useScrollTo() {
-  const lenis = useLenis();
-
+  const lenisRef = useLenis();
   return (target: string | number, onComplete?: () => void) => {
-    lenis?.scrollTo(target, {
+    lenisRef?.current?.scrollTo(target, {
       offset: 0,
       duration: 1.2,
       onComplete,
